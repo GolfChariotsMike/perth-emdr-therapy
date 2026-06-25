@@ -25,9 +25,27 @@ document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 const form = document.getElementById('booking-form');
 const success = document.getElementById('form-success');
 if (form) {
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    form.style.display = 'none';
-    if (success) success.style.display = 'block';
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData);
+    
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      
+      if (response.ok) {
+        form.style.display = 'none';
+        if (success) success.style.display = 'block';
+      } else {
+        alert('Error sending message. Please try again.');
+      }
+    } catch (error) {
+      console.error('Form error:', error);
+      alert('Error sending message. Please try again.');
+    }
   });
 }
