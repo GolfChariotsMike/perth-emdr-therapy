@@ -160,6 +160,10 @@ body {
   max-width: 420px;
 }
 
+.hero-text p + p {
+  margin-top: 16px;
+}
+
 /* ---- SERVICES ---- */
 .services-section {
   background: var(--bg-light);
