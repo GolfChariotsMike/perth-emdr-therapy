@@ -125,6 +125,14 @@ body {
 
 .hero-image {
   overflow: hidden;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 6px;
+  height: 620px;
+}
+
+.hero-image img {
+  min-height: 0;
 }
 
 .hero-image img {
@@ -534,7 +542,11 @@ body {
   }
 
   .hero-image {
-    height: 280px;
+    height: auto;
+  }
+
+  .hero-image img {
+    height: 220px;
   }
 
   .hero-text {
