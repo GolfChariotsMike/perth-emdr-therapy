@@ -126,7 +126,7 @@ body {
 .hero-image {
   overflow: hidden;
   display: grid;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 1fr 1.25fr;
   gap: 6px;
   height: 620px;
 }
@@ -141,6 +141,11 @@ body {
   object-fit: cover;
   object-position: center;
   display: block;
+}
+
+/* Waiting room photo: show the artwork on the back wall */
+.hero-image img.hero-waiting {
+  object-position: center top;
 }
 
 .hero-text {
