@@ -586,3 +586,11 @@ body {
   .nav { padding: 18px 20px; }
   .nav-menu { padding: 16px 20px 24px; }
 }
+
+/* ---- ABOUT PAGE CTA ---- */
+.page-content a.about-cta {
+  color: var(--bg);
+  border-bottom: none;
+  margin-top: 8px;
+}
+.page-content a.about-cta:hover { opacity: 0.8; }
