@@ -3,11 +3,15 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const { first_name, last_name, email, phone, message } = req.body;
+  const { first_name, last_name, email, phone, message, availability } = req.body;
 
   if (!first_name || !last_name || !email || !phone || !message) {
     return res.status(400).json({ error: 'Missing required fields' });
   }
+
+  const availabilityDisplay = typeof availability === 'string' && availability.trim()
+    ? availability.replace(/\n/g, '<br>')
+    : 'Not provided';
 
   const resendApiKey = process.env.RESEND_API_KEY;
   if (!resendApiKey) {
@@ -31,6 +35,8 @@ export default async function handler(req, res) {
           <p><strong>Name:</strong> ${first_name} ${last_name}</p>
           <p><strong>Email:</strong> ${email}</p>
           <p><strong>Phone:</strong> ${phone}</p>
+          <p><strong>Best days and times for appointment:</strong></p>
+          <p>${availabilityDisplay}</p>
           <p><strong>Message:</strong></p>
           <p>${message.replace(/\n/g, '<br>')}</p>
         `,
