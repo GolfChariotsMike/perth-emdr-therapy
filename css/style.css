@@ -156,6 +156,19 @@ body {
   background: var(--bg);
 }
 
+.hero-logo {
+  display: block;
+  width: 340px;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 32px;
+  padding: 10px 14px;
+  background: #fefefe;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(58, 48, 37, 0.08);
+  box-sizing: border-box;
+}
+
 .hero-text h1 {
   font-family: var(--serif);
   font-size: clamp(32px, 4vw, 52px);
@@ -571,6 +584,11 @@ body {
 
   .hero-text {
     padding: 40px 24px;
+  }
+
+  .hero-logo {
+    width: 300px;
+    margin: 0 auto 24px;
   }
 
   .services-grid {
